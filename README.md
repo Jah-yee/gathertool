@@ -369,6 +369,7 @@ github.com/mangenotwork/gathertool.RegFindAllTxt({0xb042f8?, 0x1?}, {0xc00020c00
 7. - Redis连接方法改为连接池, 干掉redis队列
 8. - 干掉excel相关方法
 9. - 新增正则提取html见 reg_helper.go
+10. GetPointHTML 属性匹配扩展为 全等 或者 包含
 ```
 
 #### v0.4.8

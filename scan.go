@@ -65,7 +65,7 @@ func (scan *HostScanUrl) do(caseUrl string, df int) {
 		return
 	}
 	// 如果不是host下的域名
-	if strings.Index(caseUrl, scan.Host) == -1 {
+	if strings.Contains(caseUrl, scan.Host) {
 		if string(caseUrl[0]) == "/" {
 			caseUrl = scan.Host + caseUrl
 			goto G
@@ -129,7 +129,7 @@ func (scan *HostScanExtLinks) Run() ([]string, int) {
 			continue
 		}
 		link := links[0]
-		if strings.Index(link, scan.Host) == -1 && string(link[0]) != "/" && string(link[0]) != "#" {
+		if strings.Contains(link, scan.Host) && string(link[0]) != "/" && string(link[0]) != "#" {
 			if _, ok := urlSet[link]; ok {
 				continue
 			}
@@ -278,7 +278,7 @@ func (scan *HostPageSpeedCheck) do(caseUrl string, df int) {
 	if _, ok := scan.UrlSet[caseUrl]; ok {
 		return
 	}
-	if strings.Index(caseUrl, scan.Host) == -1 {
+	if strings.Contains(caseUrl, scan.Host) {
 		return
 	}
 	ctx, err := Get(caseUrl)
